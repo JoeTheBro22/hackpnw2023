@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moveright : MonoBehaviour
-{   Rigidbody2D rb;
+public class moneygain : MonoBehaviour
+{
     // Start is called before the first frame update
     void Start()
-    {
-   rb = GetComponent<Rigidbody2D>();
+
+    {}
+
+      void OnCollisionEnter2D(Collision2D myCol){
+
+                 Destroy(myCol.gameObject);
+                 Debug.Log("money +1");
+    }
 
 
-rb.AddForce(transform.right*25);
-}
     // Update is called once per frame
     void Update()
     {
