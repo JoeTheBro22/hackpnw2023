@@ -18,6 +18,6 @@ int counter = 0;
     
     if (counter < 0) {
         Instantiate(square, new Vector2(transform.position.x+1, transform.position.y), Quaternion.identity);
-        counter = 60;
+        counter = 30;
     }}
 }
