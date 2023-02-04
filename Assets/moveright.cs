@@ -7,14 +7,12 @@ public class moveright : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-   rb = GetComponent<Rigidbody2D>();
-
-
-rb.AddForce(transform.right*25);
-}
+        rb = GetComponent<Rigidbody2D>();
+        rb.AddForce(new Vector2(25,0));
+    }
     // Update is called once per frame
     void Update()
     {
-        
+        rb.AddForce(new Vector2(1,0));
     }
 }
