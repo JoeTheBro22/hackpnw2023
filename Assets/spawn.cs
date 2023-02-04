@@ -13,11 +13,11 @@ int counter = 0;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     { counter--;
     
     if (counter < 0) {
         Instantiate(square, new Vector2(transform.position.x+1, transform.position.y), Quaternion.identity);
-        counter = 1440;
+        counter = 30;
     }}
 }
