@@ -10,7 +10,7 @@ public class moveright : MonoBehaviour
    rb = GetComponent<Rigidbody2D>();
 
 
-rb.AddForce(transform.right*15);
+rb.AddForce(transform.right*20);
 }
     // Update is called once per frame
     void Update()
