@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ff07bbc1a695a40b526b4f1ee55946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!212 &301142309
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -379,6 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ff07bbc1a695a40b526b4f1ee55946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!212 &337320435
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -609,6 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ff07bbc1a695a40b526b4f1ee55946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!212 &1146393188
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -689,6 +692,7 @@ GameObject:
   - component: {fileID: 1308730925}
   - component: {fileID: 1308730924}
   - component: {fileID: 1308730923}
+  - component: {fileID: 1308730928}
   m_Layer: 0
   m_Name: Square (2)
   m_TagString: Untagged
@@ -755,6 +759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ff07bbc1a695a40b526b4f1ee55946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!212 &1308730926
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -822,6 +827,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1308730928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308730922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a20405aa4f0ac0439b87071e283606e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1 &2013121387
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ff07bbc1a695a40b526b4f1ee55946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!212 &2013121391
 SpriteRenderer:
   m_ObjectHideFlags: 0
