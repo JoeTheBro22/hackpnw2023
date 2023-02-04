@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 4825261091680034512}
   - component: {fileID: 4825261091680034519}
   - component: {fileID: 4825261091680034518}
+  - component: {fileID: -9220490454266732879}
   m_Layer: 0
-  m_Name: Square (1)
-  m_TagString: Untagged
+  m_Name: money
+  m_TagString: money
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,3 +147,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-9220490454266732879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4825261091680034517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b74058c6d1ad5f46a1ce7c1b132b550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seconds: 10
