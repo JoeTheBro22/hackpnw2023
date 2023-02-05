@@ -7,9 +7,8 @@ public class conveyorObstacle : MonoBehaviour
     public float xForce;
     public float yForce;
 
-    private void OnTriggerEnter2D(Collider2D myCol)
+    void OnTriggerStay2D(Collider2D myCol)
     {
-        Debug.Log("colliding");
         if(myCol.gameObject.tag == "money"){
             myCol.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(xForce, yForce));
         }
@@ -22,7 +21,7 @@ public class conveyorObstacle : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
     }
