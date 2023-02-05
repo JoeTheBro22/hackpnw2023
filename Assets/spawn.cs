@@ -9,6 +9,8 @@ public class spawn : MonoBehaviour
     float counter = 0.0f;
     private GameObject GameManager;
     public float spawnDelayCoefficient = 1.0f;
+
+    public int spawnerNumber;
     // Start is called before the first frame update
     void Start(){
         GameManager = GameObject.Find("GameManager");
@@ -16,10 +18,26 @@ public class spawn : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    { counter--;
-    
-    if (counter < 0) {
-        Instantiate(square, new Vector2(transform.position.x+1, transform.position.y), Quaternion.identity);
-        counter = /*30*/GameManager.GetComponent<GameManager>().spawnDelay*spawnDelayCoefficient;
-    }}
+    {
+        bool spawnerIsEnabled = false;
+        if(spawnerNumber == 1){
+            spawnerIsEnabled = true;
+        } else if(spawnerNumber == 2){
+            if(GameManager.GetComponent<GameManager>().spawner2enabled == true){
+                spawnerIsEnabled = true;
+            }
+        } else if(spawnerNumber == 3){
+            if(GameManager.GetComponent<GameManager>().spawner3enabled == true){
+                spawnerIsEnabled = true;
+            }
+        }
+        if(spawnerIsEnabled){
+            counter--;
+            if (counter < 0) {
+                Instantiate(square, new Vector2(transform.position.x+1, transform.position.y), Quaternion.identity);
+                counter = /*30*/GameManager.GetComponent<GameManager>().spawnDelay*spawnDelayCoefficient;
+            }
+        }
+        
+    }
 }

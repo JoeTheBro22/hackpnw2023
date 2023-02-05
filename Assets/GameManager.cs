@@ -11,16 +11,29 @@ public class GameManager : MonoBehaviour
     public float spawnDelayCostMultiplier = 1.2f;
     public float spawnDelayIncrement = 0.9f;
     public int spawnDelayLevel = 0;
+
+    public float pipeUpgradeCost = 10f;
+    public float pipeUpgradeCostMultiplier = 2;
+    public int pipeUpgradeLevel = 0;
+    public bool spawner2enabled = false;
+    public bool spawner3enabled = false;
+
+    public bool moneysEnabled = false;
     
     private GameObject spawnRateText;
+    private GameObject pipeText;
 
     private GameObject scoreText;
+
+    private GameObject pipeUpgradeButton;
 
     // Start is called before the first frame update
     void Start()
     {
         spawnRateText = GameObject.Find("spawnRateText");
+        pipeText = GameObject.Find("pipeText");
         scoreText = GameObject.Find("scoreText");
+        pipeUpgradeButton = GameObject.Find("unlockPipes");
     }
 
     // Update is called once per frame
@@ -41,6 +54,45 @@ public class GameManager : MonoBehaviour
             // increment the level text
             spawnDelayLevel++;
             spawnRateText.GetComponent<UnityEngine.UI.Text>().text = "Spawn Rate Level " + spawnDelayLevel.ToString() + "\n Cost: " + spawnDelayCost;
+        }
+    }
+
+    public void upgradePipes(){
+        // this upgrade functions functions two ways: first it allows the money sprites to actually recieve money and then second it unlocks the 2nd and 3rd pipes
+        if(score >= pipeUpgradeCost){
+            // update score
+            score -= Mathf.RoundToInt(pipeUpgradeCost);
+            scoreText.GetComponent<UnityEngine.UI.Text>().text = "score: " + score.ToString();
+
+            // increment
+            pipeUpgradeCost *= pipeUpgradeCostMultiplier;
+
+            pipeUpgradeLevel++;
+
+            // if its level 1, then enable the moneys. If its >0, then unlock pipes
+            if(pipeUpgradeLevel == 1){
+                // enable moneys
+                moneysEnabled = true;
+                // make their color green
+                GameObject[] moneys  = GameObject.FindGameObjectsWithTag("moneyCollector");
+                foreach (GameObject money in moneys){
+                    // money.transform.position = new Vector3(0,0,0);
+                    money.GetComponent<SpriteRenderer>().color = Color.green;
+                    // Instantiate(respawnPrefab, respawn.transform.position, respawn.transform.rotation);
+                }
+
+                pipeText.GetComponent<UnityEngine.UI.Text>().text = "Unlock Spawner 2 \n Cost: " + pipeUpgradeCost;
+            } else if(pipeUpgradeLevel == 2) {
+                // unlock 2nd pipe
+                spawner2enabled = true;
+
+                pipeText.GetComponent<UnityEngine.UI.Text>().text = "Unlock Spawner 3 \n Cost: " + pipeUpgradeCost;
+            } else if(pipeUpgradeLevel == 3) {
+                // unlock 3rd pipe and delete the button
+                spawner3enabled = true;
+
+                Destroy(pipeUpgradeButton);
+            }
         }
     }
 }
