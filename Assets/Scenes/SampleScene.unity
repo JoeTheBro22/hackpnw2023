@@ -924,7 +924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62edc8593d847d4391e3c83bf09ca1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 1000000
+  score: 0
   spawnDelay: 120
   spawnDelayCost: 10
   spawnDelayCostMultiplier: 1.2
