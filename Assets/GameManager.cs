@@ -19,9 +19,15 @@ public class GameManager : MonoBehaviour
     public bool spawner3enabled = false;
 
     public bool moneysEnabled = false;
+
+    public float shrinkUpgradeCost = 10f;
+    public float shrinkUpgradeCostMultiplier = 1.4f;
+    public int shrinkUpgradeLevel = 0;
+    public float shrinkAmount = 1.0f;
     
     private GameObject spawnRateText;
     private GameObject pipeText;
+    private GameObject shrinkText;
 
     private GameObject scoreText;
 
@@ -32,6 +38,7 @@ public class GameManager : MonoBehaviour
     {
         spawnRateText = GameObject.Find("spawnRateText");
         pipeText = GameObject.Find("pipeText");
+        shrinkText = GameObject.Find("shrinkText");
         scoreText = GameObject.Find("scoreText");
         pipeUpgradeButton = GameObject.Find("unlockPipes");
     }
@@ -45,7 +52,7 @@ public class GameManager : MonoBehaviour
     public void upgradeSpawnRate(){
         if(score >= spawnDelayCost){
             score -= Mathf.RoundToInt(spawnDelayCost);
-            scoreText.GetComponent<UnityEngine.UI.Text>().text = "score: " + score.ToString();
+            scoreText.GetComponent<UnityEngine.UI.Text>().text = "Score: " + score.ToString();
 
             spawnDelayCost *= spawnDelayCostMultiplier;
             spawnDelay *= spawnDelayIncrement;
@@ -62,7 +69,7 @@ public class GameManager : MonoBehaviour
         if(score >= pipeUpgradeCost){
             // update score
             score -= Mathf.RoundToInt(pipeUpgradeCost);
-            scoreText.GetComponent<UnityEngine.UI.Text>().text = "score: " + score.ToString();
+            scoreText.GetComponent<UnityEngine.UI.Text>().text = "Score: " + score.ToString();
 
             // increment
             pipeUpgradeCost *= pipeUpgradeCostMultiplier;
@@ -94,6 +101,21 @@ public class GameManager : MonoBehaviour
 
                 Destroy(pipeUpgradeButton);
             }
+        }
+    }
+
+    public void shrinkObstacles() {
+        if(score >= shrinkUpgradeCost){
+            // update score
+            score -= Mathf.RoundToInt(shrinkUpgradeCost);
+            shrinkUpgradeCost *= shrinkUpgradeCostMultiplier;
+            shrinkUpgradeCost = Mathf.RoundToInt(shrinkUpgradeCost);
+            scoreText.GetComponent<UnityEngine.UI.Text>().text = "Score: " + score.ToString();
+            shrinkUpgradeLevel++;
+
+            shrinkText.GetComponent<UnityEngine.UI.Text>().text = "Shrink Obstacles \nLevel " + shrinkUpgradeLevel.ToString() + "\nCost: " + shrinkUpgradeCost.ToString();
+
+            shrinkAmount *= 0.97f;
         }
     }
 }

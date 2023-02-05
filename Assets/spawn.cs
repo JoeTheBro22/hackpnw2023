@@ -5,6 +5,7 @@ using UnityEngine;
 public class spawn : MonoBehaviour
 {
     public GameObject square;
+    public GameObject goldenSquare;
     
     float counter = 0.0f;
     private GameObject GameManager;
@@ -34,7 +35,13 @@ public class spawn : MonoBehaviour
         if(spawnerIsEnabled){
             counter--;
             if (counter < 0) {
-                Instantiate(square, new Vector2(transform.position.x+1, transform.position.y), Quaternion.identity);
+                if(Random.Range(0.0f, 100.0f) > 99.0f){
+                    // rare golden box
+                    Instantiate(goldenSquare, new Vector2(transform.position.x+1, transform.position.y), Quaternion.identity);
+                } else {
+                    Instantiate(square, new Vector2(transform.position.x+1, transform.position.y), Quaternion.identity);
+                }
+                
                 counter = /*30*/GameManager.GetComponent<GameManager>().spawnDelay*spawnDelayCoefficient;
             }
         }

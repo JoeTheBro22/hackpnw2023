@@ -21,6 +21,10 @@ public class moveright : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.AddForce(new Vector2(25,0));
 
+        // updating scale
+        float shrinkAmount = GameManager.GetComponent<GameManager>().shrinkAmount;
+        transform.localScale = new Vector3(transform.localScale.x*shrinkAmount,transform.localScale.y*shrinkAmount,1);
+
         scale = transform.localScale.x;
     }
     // Update is called once per frame
