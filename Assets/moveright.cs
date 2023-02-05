@@ -8,9 +8,14 @@ public class moveright : MonoBehaviour
 
     private GameObject scoreText;
     private GameObject GameManager;
+
+    public GameObject popUpTextPrefab;
+    private GameObject Canvas;
     // Start is called before the first frame update
     void Start()
     {
+        Canvas = GameObject.Find("Canvas");
+
         GameManager = GameObject.Find("GameManager");
         scoreText = GameObject.Find("scoreText");
         rb = GetComponent<Rigidbody2D>();
@@ -30,9 +35,12 @@ public class moveright : MonoBehaviour
             float differenceX = transform.position.x-mousePosition.x;
             float differenceY = transform.position.y - mousePosition.y;
             if(differenceX*differenceX + differenceY * differenceY < scale*scale){
+                // add the +1 text
+                Instantiate(popUpTextPrefab, Camera.main.WorldToScreenPoint(transform.position), Quaternion.identity, Canvas.transform);
+
                 // update the text
                 int score = GameManager.GetComponent<GameManager>().score++;
-                scoreText.GetComponent<UnityEngine.UI.Text>().text = "score: " + score.ToString();
+                scoreText.GetComponent<UnityEngine.UI.Text>().text = "Score: " + (score+1).ToString();
 
                 //destroy ourselves - goodbye world :(
                 Destroy(gameObject);
