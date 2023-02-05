@@ -2637,7 +2637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1544631316153632504, guid: 162b4d0c0ed49934fa4234a37ed99420, type: 3}
       propertyPath: spawnDelayCoefficient
-      value: 2.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4320040955228890042, guid: 162b4d0c0ed49934fa4234a37ed99420, type: 3}
       propertyPath: m_Offset.x
