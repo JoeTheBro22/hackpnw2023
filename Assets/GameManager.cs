@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public int spawnDelayLevel = 0;
 
     public float pipeUpgradeCost = 10f;
-    public float pipeUpgradeCostMultiplier = 2;
+    public float pipeUpgradeCostMultiplier = 10;
     public int pipeUpgradeLevel = 0;
     public bool spawner2enabled = false;
     public bool spawner3enabled = false;

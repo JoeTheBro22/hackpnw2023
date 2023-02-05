@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ff07bbc1a695a40b526b4f1ee55946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popUpTextPrefab: {fileID: 8369251924014554648, guid: beffd0ba379f51e48b19b079b00cd199, type: 3}
+  popUpTextPrefab: {fileID: 8369251924014554648, guid: 07d2ff5dc3ce7fd40a728459770e229c, type: 3}
 --- !u!50 &4825261091680034519
 Rigidbody2D:
   serializedVersion: 4

@@ -1080,7 +1080,7 @@ MonoBehaviour:
   spawnDelayIncrement: 0.9
   spawnDelayLevel: 0
   pipeUpgradeCost: 10
-  pipeUpgradeCostMultiplier: 2
+  pipeUpgradeCostMultiplier: 10
   pipeUpgradeLevel: 0
   spawner2enabled: 0
   spawner3enabled: 0
