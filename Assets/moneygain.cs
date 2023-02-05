@@ -15,7 +15,7 @@ public class moneygain : MonoBehaviour
     void OnCollisionEnter2D(Collision2D myCol){
       if(myCol.gameObject.tag == "money"){
         Destroy(myCol.gameObject);
-        score = GameManager.GetComponent<GameManager>().score++;
+        score = GameManager.GetComponent<GameManager>().score+=2;
         scoreText.GetComponent<UnityEngine.UI.Text>().text = "score: " + score.ToString();
       }
     }
