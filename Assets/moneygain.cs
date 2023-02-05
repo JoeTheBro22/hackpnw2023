@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class moneygain : MonoBehaviour
 {
+    public GameObject scoreText;
+    private int score;
     // Start is called before the first frame update
-    void Start()
+    void Start(){}
 
-    {}
-
-      void OnCollisionEnter2D(Collision2D myCol){
-
-                 Destroy(myCol.gameObject);
-                 Debug.Log("money +1");
+    void OnCollisionEnter2D(Collision2D myCol){
+      if(myCol.gameObject.tag == "money"){
+        Destroy(myCol.gameObject);
+        score++;
+        scoreText.GetComponent<UnityEngine.UI.Text>().text = "score: " + score.ToString();
+      }
     }
 
 

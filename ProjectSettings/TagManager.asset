@@ -9,10 +9,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - rotating
+  - obstacle
   - Water
   - UI
-  - 
+  - moneycollector
   - 
   - 
   - 
@@ -39,6 +39,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: backgrouned
+    uniqueID: 1893184183
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
