@@ -77,7 +77,8 @@ public class GameManager : MonoBehaviour
                 GameObject[] moneys  = GameObject.FindGameObjectsWithTag("moneyCollector");
                 foreach (GameObject money in moneys){
                     // money.transform.position = new Vector3(0,0,0);
-                    money.GetComponent<SpriteRenderer>().color = Color.green;
+                    money.GetComponent<SpriteRenderer>().color = Color.white;
+                    money.GetComponent<BoxCollider2D>().enabled = true;
                     // Instantiate(respawnPrefab, respawn.transform.position, respawn.transform.rotation);
                 }
 
