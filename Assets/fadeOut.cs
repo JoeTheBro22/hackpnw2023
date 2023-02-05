@@ -23,7 +23,6 @@ public class fadeOut : MonoBehaviour
         if(seconds < 0.0f){
             Destroy(gameObject);
         } else {
-            Debug.Log(seconds);
             gameObject.GetComponent<Text>().color = new Color(0.0f, 1.0f, 0.0f, seconds/maxSeconds);
         }
     }
