@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
             scoreText.GetComponent<UnityEngine.UI.Text>().text = "Score: " + score.ToString();
             shrinkUpgradeLevel++;
 
-            shrinkText.GetComponent<UnityEngine.UI.Text>().text = "Shrink Obstacles \nLevel " + shrinkUpgradeLevel.ToString() + "\nCost: " + shrinkUpgradeCost.ToString();
+            shrinkText.GetComponent<UnityEngine.UI.Text>().text = "Shrink Obstacles \nLevel " + shrinkUpgradeLevel.ToString() + " Cost: " + shrinkUpgradeCost.ToString();
 
             shrinkAmount *= 0.97f;
         }
