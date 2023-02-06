@@ -3,15 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - money
+  - moneyCollector
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - obstacle
   - Water
   - UI
-  - 
+  - moneycollector
   - 
   - 
   - 
@@ -38,6 +40,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: frontground
+    uniqueID: 2316159653
+    locked: 0
+  - name: backgrouned
+    uniqueID: 1893184183
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

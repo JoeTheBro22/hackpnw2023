@@ -4,15 +4,40 @@ using UnityEngine;
 
 public class moneygain : MonoBehaviour
 {
+    public GameObject scoreText;
+    private int score;
+    private GameObject GameManager;
+    private GameObject Canvas;
+
+    public GameObject popUpTextPrefab;
+    public GameObject goldenPopUpTextPrefab;
     // Start is called before the first frame update
-    void Start()
+    void Start(){
+      GameManager = GameObject.Find("GameManager");
+      Canvas = GameObject.Find("Canvas");
+    }
 
-    {}
+    void OnCollisionEnter2D(Collision2D myCol){
+      if(myCol.gameObject.tag == "money" && GameManager.GetComponent<GameManager>().moneysEnabled == true){
+        // getting half the width and height of canvas
+        float halfHeight = Canvas.GetComponent<RectTransform>().rect.height/2;
+        float halfWidth = Canvas.GetComponent<RectTransform>().rect.width/2;
+        //new Vector3(transform.position.x*halfWidth*2.0f, transform.position.y*halfHeight*2.0f, 0)
+        
+        
+        // Debug.Log(myCol.gameObject.name);
+        if(myCol.gameObject.name == "goldenMoney(Clone)"){
+          score = GameManager.GetComponent<GameManager>().score+=100;
+          Instantiate(goldenPopUpTextPrefab, Camera.main.WorldToScreenPoint(transform.position), Quaternion.identity, Canvas.transform);
+        } else {
+          score = GameManager.GetComponent<GameManager>().score+=2;
+          Instantiate(popUpTextPrefab, Camera.main.WorldToScreenPoint(transform.position), Quaternion.identity, Canvas.transform);
+        }
 
-      void OnCollisionEnter2D(Collision2D myCol){
-
-                 Destroy(myCol.gameObject);
-                 Debug.Log("money +1");
+        Destroy(myCol.gameObject);
+        
+        scoreText.GetComponent<UnityEngine.UI.Text>().text = "Score: " + score.ToString();
+      }
     }
 
 
